@@ -276,4 +276,7 @@ ifeq ($(ADD_CUSTOM_APPS),true)
 $(call inherit-product, vendor/apps/apps.mk)
 endif
 
+# Optimisation
+$(call inherit-product, vendor/pixelstar/config/common/optimisation.mk)
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
