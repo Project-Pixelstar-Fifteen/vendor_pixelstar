@@ -103,6 +103,13 @@ PRODUCT_PACKAGES += \
     Updater
 endif
 
+# Transparent recents in pixel launcher
+TARGET_USES_BLUR_RECENT ?= true
+ifeq ($(TARGET_USES_BLUR_RECENT), true)
+PRODUCT_PACKAGES += \
+    PixelLauncherOverlayBlur
+endif
+
 PRODUCT_COPY_FILES += \
     vendor/pixelstar/prebuilt/common/etc/init/init.pixelstar-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.pixelstar-updater.rc
 
