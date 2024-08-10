@@ -265,9 +265,6 @@ CUSTOM_LOCALES += \
     cy_GB \
     fur_IT
 
-# Bootanimation
-include vendor/pixelstar/config/bootanimation.mk
-
 # Fonts
 include vendor/pixelstar/config/fonts.mk
 
