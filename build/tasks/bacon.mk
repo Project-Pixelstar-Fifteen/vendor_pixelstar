@@ -24,6 +24,6 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 bacon:  $(DEFAULT_GOAL) $(BUILT_TARGET_FILES_PACKAGE) $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PIXELSTAR_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(PIXELSTAR_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(PIXELAGE_TARGET_PACKAGE).sha256sum
-	$(hide) ./vendor/pixelstar/build/tools/createjson.sh $(TARGET_DEVICE) $(PRODUCT_OUT) $(PIXELSTAR_VERSION).zip
+	$(hide) ./vendor/pixelstar/build/tools/createjson.sh $(TARGET_DEVICE) $(PRODUCT_OUT) $(PIXELSTAR_VERSION).zip $(PLATFORM_VERSION)
 	$(hide) ./vendor/pixelstar/build/tools/ascii_output.sh
 	@echo "Package Complete: $(PIXELSTAR_TARGET_PACKAGE)" >&2
