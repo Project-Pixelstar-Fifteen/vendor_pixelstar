@@ -9,8 +9,6 @@ $(call inherit-product-if-exists, vendor/pixelage-priv/config/common.mk)
 
 PRODUCT_BRAND ?= ProjectPixelage
 
-PRODUCT_BUILD_PROP_OVERRIDES += DateUtc=0
-
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
