@@ -4,6 +4,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # GApps
 $(call inherit-product, vendor/gms/products/gms.mk)
 
+# Include pixelage-priv
+$(call inherit-product-if-exists, vendor/pixelage-priv/config/common.mk)
+
 PRODUCT_BRAND ?= ProjectPixelage
 
 PRODUCT_BUILD_PROP_OVERRIDES += DateUtc=0

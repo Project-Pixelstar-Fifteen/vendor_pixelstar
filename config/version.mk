@@ -19,6 +19,3 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.pixelage.fingerprint=$(ROM_FINGERPRINT) \
     ro.pixelage.version=$(PIXELAGE_VERSION) \
     ro.modversion=$(PIXELAGE_VERSION)
-
-# Signing
--include vendor/pixelage-priv/keys/keys.mk
