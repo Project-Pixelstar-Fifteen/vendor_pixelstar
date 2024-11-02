@@ -24,4 +24,5 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 bacon: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PIXELAGE_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(PIXELAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(PIXELAGE_TARGET_PACKAGE).sha256sum
+	$(hide) ./vendor/pixelage/build/tools/createjson.sh $(TARGET_DEVICE) $(PRODUCT_OUT) $(PIXELAGE_VERSION).zip
 	@echo "Package Complete: $(PIXELAGE_TARGET_PACKAGE)" >&2
