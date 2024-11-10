@@ -264,4 +264,9 @@ include vendor/pixelstar/config/fonts.mk
 # Version
 include vendor/pixelstar/config/version.mk
 
+# Apps
+ifeq ($(ADD_CUSTOM_APPS),true)
+$(call inherit-product, vendor/apps/apps.mk)
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
