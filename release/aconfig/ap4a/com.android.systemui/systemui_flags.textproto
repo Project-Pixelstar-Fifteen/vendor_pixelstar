@@ -4,3 +4,31 @@ flag_value {
   state: ENABLED
   permission: READ_ONLY
 }
+
+flag_value {
+  package: "com.android.systemui"
+  name: "keyguard_bottom_area_refactor"
+  state: DISABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "migrate_clocks_to_blueprint"
+  state: DISABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "predictive_back_sysui"
+  state: DISABLED
+  permission: READ_ONLY
+}
+
+flag_value {
+  package: "com.android.systemui"
+  name: "device_entry_udfps_refactor"
+  state: DISABLED
+  permission: READ_ONLY
+}
