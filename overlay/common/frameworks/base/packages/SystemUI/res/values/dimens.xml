@@ -23,4 +23,7 @@
 
     <!-- Smartspace -->
     <dimen name="enhanced_smartspace_height">104.0dip</dimen>
+
+    <!-- Date weather view -->
+    <dimen name="date_weather_view_height">24.0dip</dimen>
 </resources>
