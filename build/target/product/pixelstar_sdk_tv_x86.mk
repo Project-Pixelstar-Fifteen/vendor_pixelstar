@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2020 The LineageOS Project
+# Copyright (C) 2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, vendor/pixelage/config/common_car.mk)
+include vendor/pixelstar/build/target/product/pixelstar_generic_tv_target.mk
 
-EMULATOR_VENDOR_NO_SENSORS := true
-EMULATOR_VENDOR_NO_SOUND := true
+$(call inherit-product, device/google/atv/products/sdk_atv_x86.mk)
 
-# Allow building otatools
-TARGET_FORCE_OTA_PACKAGE := true
+TARGET_NO_KERNEL_OVERRIDE := true
+
+# Enable mainline checking
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+
+# Overrides
+PRODUCT_NAME := pixelstar_sdk_tv_x86
+PRODUCT_MODEL := Project Pixelage Android TV SDK built for x86
+
+PRODUCT_SDK_ADDON_NAME := pixelstar
+PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties

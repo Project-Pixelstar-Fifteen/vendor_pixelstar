@@ -5,9 +5,9 @@ Additional Project Pixelage functions:
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- pixelagegerrit:   A Git wrapper that fetches/pushes patch from/to Pixelage Gerrit Review.
-- pixelagerebase:   Rebase a Gerrit change and push it again.
-- pixelageremote:   Add git remote for Pixelage Gerrit Review.
+- pixelstargerrit:   A Git wrapper that fetches/pushes patch from/to Pixelage Gerrit Review.
+- pixelstarrebase:   Rebase a Gerrit change and push it again.
+- pixelstarremote:   Add git remote for Pixelage Gerrit Review.
 - aospremote:      Add git remote for matching AOSP repository.
 - cloremote:       Add git remote for matching CodeLinaro repository.
 - githubremote:    Add git remote for Pixelage Github.

@@ -1,5 +1,5 @@
-# Inherit common Pixelage stuff
-$(call inherit-product, vendor/pixelage/config/common_mobile.mk)
+# Inherit common Pixelstar stuff
+$(call inherit-product, vendor/pixelstar/config/common_mobile.mk)
 
 PRODUCT_SIZE := full
 
@@ -19,5 +19,5 @@ PRODUCT_PACKAGES += \
     zstd
 
 # Include Pixelage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/pixelage/overlay/dictionaries
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/pixelage/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/pixelstar/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/pixelstar/overlay/dictionaries

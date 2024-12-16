@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, build/target/product/gsi_release.mk)
-$(call inherit-product, device/google/atv/products/aosp_tv_arm.mk)
+$(call inherit-product, device/google/atv/products/aosp_tv_x86.mk)
 
-include vendor/pixelage/build/target/product/pixelage_generic_tv_target.mk
+include vendor/pixelstar/build/target/product/pixelstar_generic_tv_target.mk
 
-TARGET_NO_KERNEL_OVERRIDE := true
-
-PRODUCT_NAME := pixelage_gsi_tv_arm
+PRODUCT_NAME := pixelstar_gsi_tv_x86
 
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
+
+PRODUCT_SDK_ADDON_NAME := pixelstar
+PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties

@@ -14,7 +14,7 @@
 
 $(call inherit-product, device/generic/goldfish/64bitonly/product/sdk_phone64_x86_64.mk)
 
-include vendor/pixelage/build/target/product/pixelage_generic_target.mk
+include vendor/pixelstar/build/target/product/pixelage_generic_target.mk
 include device/generic/goldfish/board/kernel/x86_64.mk
 
 # Always build modules from source
@@ -24,10 +24,10 @@ PRODUCT_MODULE_BUILD_FROM_SOURCE := true
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
 # Overrides
-PRODUCT_NAME := pixelage_sdk_phone_x86_64
-PRODUCT_MODEL := Project Pixelage Android SDK built for x86_64
+PRODUCT_NAME := pixelstar_sdk_phone_x86_64
+PRODUCT_MODEL := Project Pixelstar Android SDK built for x86_64
 
-PRODUCT_SDK_ADDON_NAME := pixelage
+PRODUCT_SDK_ADDON_NAME := pixelstar
 PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
 
 # Increase Partition size: 8G+8M

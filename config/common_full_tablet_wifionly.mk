@@ -1,7 +1,7 @@
-# Inherit mobile full common Pixelage stuff
-$(call inherit-product, vendor/pixelage/config/common_mobile_full.mk)
+# Inherit mobile full common Pixelstar stuff
+$(call inherit-product, vendor/pixelstar/config/common_mobile_full.mk)
 
-# Inherit tablet common Pixelage stuff
-$(call inherit-product, vendor/pixelage/config/tablet.mk)
+# Inherit tablet common Pixelstar stuff
+$(call inherit-product, vendor/pixelstar/config/tablet.mk)
 
-$(call inherit-product, vendor/pixelage/config/wifionly.mk)
+$(call inherit-product, vendor/pixelstar/config/wifionly.mk)

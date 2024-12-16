@@ -1,5 +1,5 @@
-# Inherit common mobile Pixelage stuff
-$(call inherit-product, vendor/pixelage/config/common.mk)
+# Inherit common mobile Pixelstar stuff
+$(call inherit-product, vendor/pixelstar/config/common.mk)
 
 # Apps
 PRODUCT_PACKAGES += \

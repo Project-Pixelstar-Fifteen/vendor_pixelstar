@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/generic/common/gsi_x86_64.mk)
+include vendor/pixelage/build/target/product/pixelstar_generic_car_target.mk
 
-include vendor/pixelage/build/target/product/pixelage_generic_target.mk
+$(call inherit-product, device/generic/car/emulator/aosp_car_emulator.mk)
 
-PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk.mk)
 
 TARGET_NO_KERNEL_OVERRIDE := true
 
-PRODUCT_NAME := pixelage_gsi_x86_64
+PRODUCT_NAME := pixelstar_sdk_car_arm64
+
+PRODUCT_SDK_ADDON_NAME := pixelstar
+PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties

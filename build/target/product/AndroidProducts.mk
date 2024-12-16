@@ -15,37 +15,37 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/pixelage_gsi_arm.mk \
-    $(LOCAL_DIR)/pixelage_gsi_arm64.mk \
-    $(LOCAL_DIR)/pixelage_gsi_x86.mk \
-    $(LOCAL_DIR)/pixelage_gsi_x86_64.mk \
-    $(LOCAL_DIR)/pixelage_gsi_car_arm64.mk \
-    $(LOCAL_DIR)/pixelage_gsi_car_x86_64.mk \
-    $(LOCAL_DIR)/pixelage_gsi_tv_arm.mk \
-    $(LOCAL_DIR)/pixelage_gsi_tv_arm64.mk \
-    $(LOCAL_DIR)/pixelage_gsi_tv_x86.mk \
-    $(LOCAL_DIR)/pixelage_gsi_tv_x86_64.mk \
-    $(LOCAL_DIR)/pixelage_sdk_car_arm64.mk \
-    $(LOCAL_DIR)/pixelage_sdk_car_x86_64.mk \
-    $(LOCAL_DIR)/pixelage_sdk_phone_arm64.mk \
-    $(LOCAL_DIR)/pixelage_sdk_phone_x86_64.mk \
-    $(LOCAL_DIR)/pixelage_sdk_tv_arm.mk \
-    $(LOCAL_DIR)/pixelage_sdk_tv_x86.mk
+    $(LOCAL_DIR)/pixelstar_gsi_arm.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_arm64.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_x86.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_x86_64.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_car_arm64.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_car_x86_64.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_tv_arm.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_tv_arm64.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_tv_x86.mk \
+    $(LOCAL_DIR)/pixelstar_gsi_tv_x86_64.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_car_arm64.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_car_x86_64.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_phone_arm64.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_phone_x86_64.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_tv_arm.mk \
+    $(LOCAL_DIR)/pixelstar_sdk_tv_x86.mk
 
 COMMON_LUNCH_CHOICES := \
-    pixelage_gsi_arm-userdebug \
-    pixelage_gsi_arm64-userdebug \
-    pixelage_gsi_x86-userdebug \
-    pixelage_gsi_x86_64-userdebug \
-    pixelage_gsi_car_arm64-userdebug \
-    pixelage_gsi_car_x86_64-userdebug \
-    pixelage_gsi_tv_arm-userdebug \
-    pixelage_gsi_tv_arm64-userdebug \
-    pixelage_gsi_tv_x86-userdebug \
-    pixelage_gsi_tv_x86_64-userdebug \
-    pixelage_sdk_car_arm64-userdebug \
-    pixelage_sdk_car_x86_64-userdebug \
-    pixelage_sdk_phone_arm64-userdebug \
-    pixelage_sdk_phone_x86_64-userdebug \
-    pixelage_sdk_tv_arm-userdebug \
-    pixelage_sdk_tv_x86-userdebug
+    pixelstar_gsi_arm-userdebug \
+    pixelstar_gsi_arm64-userdebug \
+    pixelstar_gsi_x86-userdebug \
+    pixelstar_gsi_x86_64-userdebug \
+    pixelstar_gsi_car_arm64-userdebug \
+    pixelstar_gsi_car_x86_64-userdebug \
+    pixelstar_gsi_tv_arm-userdebug \
+    pixelstar_gsi_tv_arm64-userdebug \
+    pixelstar_gsi_tv_x86-userdebug \
+    pixelstar_gsi_tv_x86_64-userdebug \
+    pixelstar_sdk_car_arm64-userdebug \
+    pixelstar_sdk_car_x86_64-userdebug \
+    pixelstar_sdk_phone_arm64-userdebug \
+    pixelstar_sdk_phone_x86_64-userdebug \
+    pixelstar_sdk_tv_arm-userdebug \
+    pixelstar_sdk_tv_x86-userdebug

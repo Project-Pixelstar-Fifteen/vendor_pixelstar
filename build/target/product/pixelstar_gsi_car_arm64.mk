@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2022 The LineageOS Project
+# Copyright (C) 2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/generic/common/gsi_x86.mk)
+$(call inherit-product, device/generic/car/gsi_car_arm64.mk)
 
-include vendor/pixelage/build/target/product/pixelage_generic_target.mk
+include vendor/pixelstar/build/target/product/pixelstar_generic_car_target.mk
 
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
 TARGET_NO_KERNEL_OVERRIDE := true
 
-PRODUCT_NAME := pixelage_gsi_x86
+# Enable mainline checking
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/app/Home/Home.apk
+
+PRODUCT_NAME := pixelstar_gsi_car_arm64

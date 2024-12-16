@@ -43,7 +43,7 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    source ${ANDROID_BUILD_TOP}/vendor/pixelage/vars/aosp_target_release
+    source ${ANDROID_BUILD_TOP}/vendor/pixelstar/vars/aosp_target_release
 
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
@@ -53,12 +53,12 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the pixelage model name
+            # This is probably just the pixelstar model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch pixelage_$target-$aosp_target_release-$variant
+            lunch pixelstar_$target-$aosp_target_release-$variant
         fi
     fi
     return $?
@@ -69,7 +69,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/pixelage-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/pixelstar-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -77,13 +77,13 @@ function eat()
         echo "Waiting for device..."
         adb wait-for-device-recovery
         echo "Found device"
-        if (adb shell getprop ro.pixelage.device | grep -q "$PIXELAGE_BUILD"); then
+        if (adb shell getprop ro.pixelstar.device | grep -q "$PIXELSTAR_BUILD"); then
             echo "Rebooting to sideload for install"
             adb reboot sideload-auto-reboot
             adb wait-for-sideload
             adb sideload $ZIPPATH
         else
-            echo "The connected device does not appear to be $PIXELAGE_BUILD, run away!"
+            echo "The connected device does not appear to be $PIXELSTAR_BUILD, run away!"
         fi
         return $?
     else
@@ -207,43 +207,43 @@ function dddclient()
    fi
 }
 
-function pixelageremote()
+function pixelstarremote()
 {
     if ! git rev-parse --git-dir &> /dev/null
     then
         echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
         return 1
     fi
-    git remote rm pixelage 2> /dev/null
+    git remote rm pixelstar 2> /dev/null
     local REMOTE=$(git config --get remote.github.projectname)
-    local PIXELAGE="true"
+    local PIXELSTAR="true"
     if [ -z "$REMOTE" ]
     then
         REMOTE=$(git config --get remote.aosp.projectname)
-        PIXELAGE="false"
+        PIXELSTAR="false"
     fi
     if [ -z "$REMOTE" ]
     then
         REMOTE=$(git config --get remote.clo.projectname)
-        PIXELAGE="false"
+        PIXELSTAR="false"
     fi
 
-    if [ $PIXELAGE = "false" ]
+    if [ $PIXELSTAR = "false" ]
     then
         local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
-        local PFX="PIXELAGE/"
+        local PFX="PIXELSTAR/"
     else
         local PROJECT=$REMOTE
     fi
 
-    local PIXELAGE_USER=$(git config --get review.review.pixelage.org.username)
-    if [ -z "$PIXELAGE_USER" ]
+    local PIXELSTAR_USER=$(git config --get review.review.pixelstar.org.username)
+    if [ -z "$PIXELSTAR_USER" ]
     then
-        git remote add pixelage ssh://review.pixelage.org:29418/$PFX$PROJECT
+        git remote add pixelstar ssh://review.pixelstar.org:29418/$PFX$PROJECT
     else
-        git remote add pixelage ssh://$pixelage_USER@review.pixelage.org:29418/$PFX$PROJECT
+        git remote add pixelstar ssh://$pixelstar_USER@review.pixelstar.org:29418/$PFX$PROJECT
     fi
-    echo "Remote 'pixelage' created"
+    echo "Remote 'pixelstar' created"
 }
 
 function aospremote()
@@ -323,7 +323,7 @@ function githubremote()
 
     local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
 
-    git remote add github https://github.com/ProjectPixelage/$PROJECT
+    git remote add github https://github.com/Projectpixelstar/$PROJECT
     echo "Remote 'github' created"
 }
 
@@ -354,14 +354,14 @@ function installboot()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop ro.pixelage.device | grep -q "$PIXELAGE_BUILD");
+    if (adb shell getprop ro.pixelstar.device | grep -q "$pixelstar_BUILD");
     then
         adb push $OUT/boot.img /cache/
         adb shell dd if=/cache/boot.img of=$PARTITION
         adb shell rm -rf /cache/boot.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $PIXELAGE_BUILD, run away!"
+        echo "The connected device does not appear to be $pixelstar_BUILD, run away!"
     fi
 }
 
@@ -392,14 +392,14 @@ function installrecovery()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop ro.pixelage.device | grep -q "$PIXELAGE_BUILD");
+    if (adb shell getprop ro.pixelstar.device | grep -q "$pixelstar_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         adb shell rm -rf /cache/recovery.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $PIXELAGE_BUILD, run away!"
+        echo "The connected device does not appear to be $pixelstar_BUILD, run away!"
     fi
 }
 
@@ -419,13 +419,13 @@ function makerecipe() {
     if [ "$REPO_REMOTE" = "github" ]
     then
         pwd
-        pixelageremote
-        git push pixelage HEAD:refs/heads/'$1'
+        pixelstarremote
+        git push pixelstar HEAD:refs/heads/'$1'
     fi
     '
 }
 
-function pixelagegerrit() {
+function pixelstargerrit() {
     if [ "$(basename $SHELL)" = "zsh" ]; then
         # zsh does not define FUNCNAME, derive from funcstack
         local FUNCNAME=$funcstack[1]
@@ -435,7 +435,7 @@ function pixelagegerrit() {
         $FUNCNAME help
         return 1
     fi
-    local user=`git config --get review.review.pixelageos.org.username`
+    local user=`git config --get review.review.pixelstaros.org.username`
     local review=`git config --get remote.github.review`
     local project=`git config --get remote.github.projectname`
     local command=$1
@@ -471,7 +471,7 @@ EOF
             case $1 in
                 __cmg_*) echo "For internal use only." ;;
                 changes|for)
-                    if [ "$FUNCNAME" = "pixelagegerrit" ]; then
+                    if [ "$FUNCNAME" = "pixelstargerrit" ]; then
                         echo "'$FUNCNAME $1' is deprecated."
                     fi
                     ;;
@@ -564,7 +564,7 @@ EOF
                 ${local_branch}:refs/for/$remote_branch || return 1
             ;;
         changes|for)
-            if [ "$FUNCNAME" = "pixelagegerrit" ]; then
+            if [ "$FUNCNAME" = "pixelstargerrit" ]; then
                 echo >&2 "'$FUNCNAME $command' is deprecated."
             fi
             ;;
@@ -663,15 +663,15 @@ EOF
     esac
 }
 
-function pixelagerebase() {
+function pixelstarrebase() {
     local repo=$1
     local refs=$2
     local pwd="$(pwd)"
     local dir="$(gettop)/$repo"
 
     if [ -z $repo ] || [ -z $refs ]; then
-        echo "Pixelage Gerrit Rebase Usage: "
-        echo "      pixelagerebase <path to project> <patch IDs on Gerrit>"
+        echo "pixelstar Gerrit Rebase Usage: "
+        echo "      pixelstarrebase <path to project> <patch IDs on Gerrit>"
         echo "      The patch IDs appear on the Gerrit commands that are offered."
         echo "      They consist on a series of numbers and slashes, after the text"
         echo "      refs/changes. For example, the ID in the following command is 26/8126/2"
@@ -692,7 +692,7 @@ function pixelagerebase() {
     echo "Bringing it up to date..."
     repo sync .
     echo "Fetching change..."
-    git fetch "http://review.pixelage.org/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
+    git fetch "http://review.pixelstar.org/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
     if [ "$?" != "0" ]; then
         echo "Error cherry-picking. Not uploading!"
         return
@@ -776,7 +776,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.pixelage.device | grep -q "$PIXELAGE_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.pixelstar.device | grep -q "$PIXELSTAR_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -895,7 +895,7 @@ EOF
     rm -f $OUT/.log
     return 0
     else
-        echo "The connected device does not appear to be $PIXELAGE_BUILD, run away!"
+        echo "The connected device does not appear to be $PIXELSTAR_BUILD, run away!"
     fi
 }
 
@@ -908,7 +908,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/pixelage/build/tools/repopick.py $@
+    $T/vendor/pixelstar/build/tools/repopick.py $@
 }
 
 function sort-blobs-list() {
